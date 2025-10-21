@@ -11,6 +11,7 @@ alias la="ls -A"
 alias ll="ls -lF"
 alias lle="ls -alF"
 alias ls="ls --color=auto" # Включаем цвета для ls
+
 alias c="clear"
 alias clr="clear"
 

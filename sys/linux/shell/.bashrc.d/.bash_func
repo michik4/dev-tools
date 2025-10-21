@@ -1,0 +1,26 @@
+function cpcd() {
+    if [ "$#" -ne 2 ]; then
+        echo "Error: incorrect args number."
+        echo "Usages: $0 <cp from> <cp to && cd to>"
+        exit 1
+    fi
+    cp $1 $2 && cd $2
+}
+
+function mkcd() {
+    if [ "$#" -ne 1 ]; then
+        echo "Error: incorrect args number."
+        echo "Usages: $0 <dirname>"
+        exit 1
+    fi
+    mkdir $1 && cd $1
+}
+
+function cdls() {
+    if [ "$#" -ne 1 ]; then
+        echo "Error: incorrect args number."
+        echo "Usages: $0 <dirname>"
+        exit 1
+    fi
+    cd $1 && ls
+}
