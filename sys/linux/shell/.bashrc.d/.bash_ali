@@ -1,0 +1,13 @@
+#navigation & files
+alias ..="cd .."
+alias ...="cd ../.."
+alias l="ls -CF"
+alias la="ls -A"
+alias ll="ls -alF"
+alias ls="ls --color=auto"
+alias clr="clear"
+
+#pkg mgr
+alias update="sudo apt-get update && sudo apt-get upgrade -y"
+alias i="sudo apt-get install"
+alias obashrc="$REDACTOR ~/.bashrc"
