@@ -1,13 +1,44 @@
-#navigation & files
+# ==============================================================================
+# BASH ALIASES (.bash_aliases)
+# Псевдонимы для навигации, Git, управления системой и редактирования конфигов
+# ==============================================================================
+
+# --- Навигация и работа с файлами ---
 alias ..="cd .."
 alias ...="cd ../.."
 alias l="ls -CF"
 alias la="ls -A"
 alias ll="ls -alF"
-alias ls="ls --color=auto"
+alias ls="ls --color=auto" # Включаем цвета для ls
+alias c="clear"
 alias clr="clear"
 
-#pkg mgr
+# --- Делаем поиск цветным ---
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# --- Git ---
+alias gs="git status"
+alias ga="git add ."
+alias gc="git commit -m"
+alias gca="git commit --amend" # Дополнить последний коммит
+alias gp="git push"
+alias gl="git pull"
+alias gco="git checkout"ы
+alias gb="git branch"
+alias glog="git log --oneline --decorate --graph --all" # Красивый лог
+
+# --- Управление системой и пакетами (пример для Debian/Ubuntu) ---
+# Для других систем (Arch, Fedora) замените команды на pacman, dnf и т.д.
 alias update="sudo apt-get update && sudo apt-get upgrade -y"
-alias i="sudo apt-get install"
-alias obashrc="$REDACTOR ~/.bashrc"
+alias install="sudo apt-get install"
+alias remove="sudo apt-get remove"
+
+# --- Редактирование конфигурационных файлов (с использованием $EDITOR) ---
+alias bashconfig='$EDITOR ~/.bashrc'
+alias aliases='$EDITOR ~/.config/.bashrc.d/.bash_aliases'
+alias exports='$EDITOR ~/.config/.bashrc.d/.bash_exports'
+
+# --- Перезагрузка конфигурации оболочки ---
+alias sourcebash="source ~/.bashrc"

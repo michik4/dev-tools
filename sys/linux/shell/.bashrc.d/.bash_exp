@@ -1,1 +1,43 @@
-export EDITOR="vim"
+# ==============================================================================
+# BASH EXPORTS (.bash_exports)
+# Переменные окружения для редактора, путей, истории и локали
+# ==============================================================================
+
+# --- Устанавливаем VIM как редактор по умолчанию ---
+# Это повлияет на git commit, crontab -e и другие утилиты
+export EDITOR='vim'
+export VISUAL='vim'
+
+# --- Настройка переменной PATH ---
+# Добавляем пользовательский каталог для бинарных файлов (если он существует)
+if [ -d "$HOME/.local/bin" ] ; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Добавляем локальный bin-каталог из node_modules для JS/TS проектов
+# Позволяет запускать команды вроде `eslint` без `npx`
+export PATH="./node_modules/.bin:$PATH"
+
+# --- Настройка истории команд ---
+# Не добавлять в историю дублирующиеся команды
+export HISTCONTROL=ignoredups:erasedups
+# Увеличиваем размер файла истории (количество строк)
+export HISTFILESIZE=20000
+# Увеличиваем количество команд в текущей сессии
+export HISTSIZE=10000
+# Добавлять команды в историю немедленно, а не при закрытии сессии
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+# --- Настройка локали ---
+# Предотвращает проблемы с кодировкой и отображением символов
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# --- Цветной вывод для `man` страниц (делает их более читаемыми) ---
+export LESS_TERMCAP_mb=$(printf '\e[1;31m')      # начало мигания
+export LESS_TERMCAP_md=$(printf '\e[1;36m')      # начало жирного
+export LESS_TERMCAP_me=$(printf '\e[0m')         # конец всего
+export LESS_TERMCAP_so=$(printf '\e[1;44;33m')   # начало выделения
+export LESS_TERMCAP_se=$(printf '\e[0m')         # конец выделения
+export LESS_TERMCAP_us=$(printf '\e[1;32m')      # начало подчеркивания
+export LESS_TERMCAP_ue=$(printf '\e[0m')         # конец подчеркивания
