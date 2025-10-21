@@ -25,7 +25,7 @@ alias gc="git commit -m"
 alias gca="git commit --amend" # Дополнить последний коммит
 alias gp="git push"
 alias gl="git pull"
-alias gco="git checkout"ы
+alias gco="git checkout"
 alias gb="git branch"
 alias glog="git log --oneline --decorate --graph --all" # Красивый лог
 
